@@ -20,8 +20,10 @@ RSpec.describe 'Flights Show Page' do
       expect(page).to have_content(@flight_1.departure_city)
       expect(page).to have_content(@flight_1.arrival_city)
       expect(page).to have_content(@frontier.name)
-      expect(page).to have_content(@harry.name)
-      expect(page).to have_content(@sally.name)
+      within ".passengers" do
+        expect(page).to have_content(@harry.name)
+        expect(page).to have_content(@sally.name)
+      end
     end
   end
 end
