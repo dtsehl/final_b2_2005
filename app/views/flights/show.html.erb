@@ -4,7 +4,9 @@
 <p><%= @flight.departure_city %></p>
 <p><%= @flight.arrival_city %></p>
 <p>This flight belongs to this airline: <%= @flight.airline.name %></p>
-<p>This flight has these passengers:</p>
-<% @flight.passengers.each do |passenger| %>
-  <%= passenger.name %>
-<% end %>
+<section class='passengers'>
+  <p>This flight has these passengers:</p>
+  <% @flight.passengers.each do |passenger| %>
+    <%= passenger.name %>
+  <% end %>
+</section>
