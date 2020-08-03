@@ -5,3 +5,9 @@
     <%= link_to flight.number, flight_path %>
   <% end %>
 </section>
+<%= form_for @flight_passenger do |f| %>
+  <%= f.label :flight_number %>
+  <%= f.text_field :flight_number %>
+  <%= f.submit "Submit" %>
+  <%= hidden_field_tag "flight_passenger[passenger_id]", "#{@passenger.id}" %>
+<% end %>
