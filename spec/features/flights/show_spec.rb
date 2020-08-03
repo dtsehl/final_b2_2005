@@ -7,12 +7,12 @@ RSpec.describe 'Flights Show Page' do
       @flight_1 = @frontier.flights.create!(number: "1234", date: "08/01/2020", time: "10:40", departure_city: "Denver", arrival_city: "Las Vegas")
       @harry = Passenger.create!(name: "Harry", age: 30)
       @sally = Passenger.create!(name: "Sally", age: 28)
-      FlightPassenger.create!(flight_id: @flight_1.id, passenger_id: @harry.id)
-      FlightPassenger.create!(flight_id: @flight_1.id, passenger_id: @sally.id)
+      FlightPassenger.create!(flight_id: @flight_1.id, passenger_id: @harry.id, flight_number: @flight_1.number)
+      FlightPassenger.create!(flight_id: @flight_1.id, passenger_id: @sally.id, flight_number: @flight_1.number)
     end
 
     it "I can see the flights details" do
-      visit "/flights/#{@flight_1.id}"
+      visit flight_path(@flight_1)
 
       expect(page).to have_content(@flight_1.number)
       expect(page).to have_content(@flight_1.date)
